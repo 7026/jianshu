@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import Header from './common/header'
-import store from './store'
 import { Provider } from 'react-redux'
+import { BrowserRouter, Route } from 'react-router-dom'
+import store from './store'
 
+import Header from './common/header'
 import AppStyle from './style'
 import IcoStyle from './statics/icon/iconfont'
+import Detail from './pages/detail'
+import Home from './pages/home'
 
 class App extends Component {
   render() {
@@ -14,6 +17,10 @@ class App extends Component {
           <AppStyle />
           <IcoStyle />
           <Header />
+          <BrowserRouter>
+            <Route path="/" exact component={Home} />
+            <Route path="/detail" component={Detail} />
+          </BrowserRouter>
         </div>
       </Provider>
     )
